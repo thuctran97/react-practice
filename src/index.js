@@ -29,13 +29,13 @@ function BookList() {
       {/* <Book job = 'developer'/>
       <Book title = 'harry potter'/> */}
       {books.map((book, index) => {
-        // console.log(book.title);
         return <Book key={index} book={book}></Book>;
       })}
     </div>
   );
 }
 //Using props as paramemeters
+// const Book = ({job, title}) => // use this if book = {...book}: spead all properties
 const Book = (props) => {
   const publish_year = "2000";
   const { job, title } = props.book; //props destructuring
