@@ -1,3 +1,4 @@
+import { click } from "@testing-library/user-event/dist/click";
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -37,16 +38,26 @@ function BookList() {
 //Using props as paramemeters
 // const Book = ({job, title}) => // use this if book = {...book}: spead all properties
 const Book = (props) => {
-  const publish_year = "2000";
-  const { job, title } = props.book; //props destructuring
+  const age = "30";
+  const clickHandler = (e) => {
+    alert('clickHandler');
+    console.log('e:', e);
+    console.log('target: ', e.target);
+  }
+  const complexExample = (author) => {
+    alert('complexExmp')
+    console.log(author);
+  }
+  const { title, author } = props.book; //props destructuring
   return (
     <div>
       <br />
-      <h5>{props.job}</h5>
-      {/* <h5>{author.toUpperCase()}</h5> */}
-      <h1>{job}</h1>
       <h1>{title}</h1>
-      <h1>{publish_year}</h1>
+      <button onClick={clickHandler}>checkClickHandler</button>
+      {/* call function with only e action */}
+      <button onClick={() => complexExample(author)}>checkComplexExample</button> 
+      {/* correct way to call function */}
+      <h1>{age}</h1>
     </div>
   );
 };
